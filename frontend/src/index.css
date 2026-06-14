@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #170f14;
+  color: #e1e4e8;
+}
+
+/* ---- Toolbar ---- */
+
+.toolbar {
+  padding: 12px 20px;
+  background: #252729;
+  border-bottom: 1px solid #646464;
+}
+
+.toolbar__title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #b9bbbe;
+  margin-bottom: 10px;
+  font-weight: 600;
+  margin-left: 625px;
+}
+
+.toolbar__nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: 275px;
+}
+
+/* ---- Draggable Nodes ---- */
+
+.draggable-node {
+  cursor: grab;
+  min-width: 80px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #6e6f6f;
+  border: 1px solid #a1a2a2;
+  padding: 0 14px;
+  transition: background 0.15s, border-color 0.15s;
+  user-select: none;
+}
+
+.draggable-node:hover {
+  background: #30363d;
+  border-color: #a2a0a0;
+}
+
+.draggable-node__label {
+  color: #0e1114;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.draggable-node:hover .draggable-node__label {
+  color: #c9d1d9;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ---- Base Node ---- */
+
+.base-node {
+  min-width: 220px;
+  background: #161b22;
+  border: 1px solid #89a0b7;
+  border-radius: 8px;
+  font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.base-node__header {
+  padding: 8px 12px;
+  background: #21262d;
+  border-bottom: 1px solid #89a0b7;
+  border-radius: 8px 8px 0 0;
+}
+
+.base-node__title {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #d3d7da;
+}
+
+.base-node__body {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.base-node__description {
+  color: #9e978b;
+  font-size: 12px;
+}
+
+/* ---- Fields ---- */
+
+.base-node__field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.base-node__field > span {
+  font-size: 11px;
+  color: #92b5de;
+  font-weight: 500;
+}
+
+.base-node__field input,
+.base-node__field select,
+.base-node__textarea {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  color: #c9d1d9;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+
+.base-node__field input:focus,
+.base-node__field select:focus,
+.base-node__textarea:focus {
+  border-color: #c5651c;
+}
+
+.base-node__textarea {
+  resize: none;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+/* ---- Variable Tags (TextNode) ---- */
+
+.base-node__var-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.base-node__var-tag {
+  display: inline-block;
+  background: #50508e;
+  color: #aaacae;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* ---- Branch Labels (ConditionalNode) ---- */
+
+.base-node__branch-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 600;
+  padding-top: 2px;
+}
+
+.base-node__branch--true {
+  color: #3fb950;
+}
+
+.base-node__branch--false {
+  color: #f85149;
+}
+
+/* ---- Handles ---- */
+
+.base-node__handle {
+  width: 10px !important;
+  height: 10px !important;
+  background: #30363d !important;
+  border: 2px solid #58a6ff !important;
+  border-radius: 50% !important;
+  transition: background 0.15s;
+}
+
+.base-node__handle:hover {
+  background: #58a6ff !important;
+}
+
+/* ---- Submit Bar ---- */
+
+.submit-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  background: #252729;
+  border-top: 1px solid #646464;
+  
+}
+
+.submit-btn {
+  background: #238636;
+  color: #fff;
+  border: 1px solid #2ea043;
+  border-radius: 6px;
+  padding: 8px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.submit-btn:hover {
+  background: #2ea043;
+}
+
+.submit-btn:active {
+  background: #1a7f37;
+}
+
+/* ---- React Flow Overrides ---- */
+
+.react-flow__background {
+  background: #000000 !important;
+}
+
+.react-flow__minimap {
+  background: #000000 !important;
+  border: 1px solid #30363d !important;
+  border-radius: 6px !important;
+}
+
+.react-flow__controls {
+  border: 1px solid #636568 !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background: #313132 !important;
+  border-bottom: 1px solid #30363d !important;
+  fill: #c9d1d9 !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #6b6b6c !important;
+  fill: #363637 !important;
+}
+
+.react-flow__edge-path {
+  stroke: #f6f6f7 !important;
+}
+
+.react-flow__connection-line {
+  stroke: #58a6ff !important;
+}
